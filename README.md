@@ -2,7 +2,7 @@
 
 by Ira Herman
 
-![animated gif demo](https://i.imgur.com/2nQs1b3.gif)
+![screenshot](https://i.imgur.com/rYoJ3Y5.png)
 
 # Technologies Used:
 
