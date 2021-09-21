@@ -106,9 +106,9 @@ function App() {
         <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
           <h2 className="sr-only">What we've got</h2>
 
-          <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+          <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8" style={{cursor: "pointer"}}>
             {products.map((product) => (
-              <a key={product.node.id} href="/" className="group">
+              <div key={product.node.id} href="/" className="group">
                 <div className="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
                   <img
                     src={product.node.media.edges[0].node.image.originalSrc}
@@ -116,9 +116,15 @@ function App() {
                     className="w-full h-full object-center object-cover group-hover:opacity-75"
                   />
                 </div>
-                <h3 className="mt-4 text-sm text-gray-700">{product.name}</h3>
-                <p className="mt-1 text-lg font-medium text-gray-900">{product.price}</p>
-              </a>
+                <h3 className="mt-4 text-sm text-gray-700">{product.node.title}</h3>
+                <p className="mt-1 text-lg font-medium text-gray-900">${product.node.variants.edges[0].node.priceV2.amount * 1}</p>
+                <button
+                    type="submit"
+                    className="mt-1 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  >
+                    Buy
+                  </button>
+              </div>
             ))}
           </div>
         </div>
