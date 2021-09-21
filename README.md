@@ -15,3 +15,7 @@ by Ira Herman
 
 * `npm install`
 * Replace the `API_KEY` in App.js with your own
+
+# Run it:
+
+* `npm start`
