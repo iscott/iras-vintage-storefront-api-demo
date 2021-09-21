@@ -1,10 +1,11 @@
-import {useEffect} from "react";
+import {useState, useEffect} from "react";
 import axios from "axios";
 import './App.css';
 
 import Header from './components/Header';
 
 function App() {
+  const [products, setProducts] = useState([]);
 
   const URL = 'https://iras-vintage-shop.myshopify.com/api/2021-07/graphql.json';
       
@@ -119,18 +120,18 @@ function App() {
   //     imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
   //   },
   // ]
-
-  const products = [];
+  
   useEffect(() => {
     async function fetchData(){
       const response = await axios.post(URL, data, config);
-      const products = response.data.data.products.edges;
+      let products = response.data.data.products.edges;
       console.log(products);
+      setProducts(products);
     }
   
     fetchData();
 
-  })
+  }, [])
   
   return (
     <div className="App">
@@ -142,7 +143,7 @@ function App() {
 
           <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
             {products.map((product) => (
-              <a key={product.id} href={product.href} className="group">
+              <a key={product.node.id} href="#" className="group">
                 <div className="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
                   <img
                     src={product.imageSrc}
