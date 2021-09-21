@@ -103,7 +103,8 @@ function App() {
     <div className="App">
       <Header />
       <section className="w-full h-screen">
-        <img src="https://i.imgur.com/Odg8LV6.jpg" className="object-cover w-full h-full" alt="Mid-century modern living room with TV and couch" />    
+        <img src="https://i.imgur.com/Odg8LV6.jpg" className="object-cover w-full h-full" alt="Mid-century modern living room with TV and couch" />
+        {/* Photo credit: https://www.thespruce.com/amazing-retro-style-decorating-1977439 */}
       </section>
       <div className="bg-white">
         <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
