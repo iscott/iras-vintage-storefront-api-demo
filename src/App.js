@@ -3,6 +3,7 @@ import axios from "axios";
 import './App.css';
 
 import Header from './components/Header';
+const API_KEY = "d1233fd65218b41ad385b5f5049336fa";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -11,7 +12,7 @@ function App() {
       
   let config = {
     headers: {
-      "X-Shopify-Storefront-Access-Token": "d1233fd65218b41ad385b5f5049336fa",
+      "X-Shopify-Storefront-Access-Token": API_KEY,
     }
   };
 
@@ -101,7 +102,9 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <h1 className="pt-12 text-4xl font-extrabold tracking-tight text-gray-900">Ira's Vintage Shop (React Front End)</h1>        
+      <section className="w-full h-screen">
+        <img src="https://i.imgur.com/Odg8LV6.jpg" className="object-cover w-full h-full" alt="Mid-century modern living room with TV and couch" />    
+      </section>
       <div className="bg-white">
         <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
           <h2 className="sr-only">What we've got</h2>
@@ -120,7 +123,7 @@ function App() {
                 <p className="mt-1 text-lg font-medium text-gray-900">${product.node.variants.edges[0].node.priceV2.amount * 1}</p>
                 <button
                     type="submit"
-                    className="mt-1 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    className="mt-1 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-400"
                   >
                     Buy
                   </button>
